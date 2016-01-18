@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-ART+COM development group. Stuff we do with software to be found here. For the [images of our projects](http://artcom.de/) you might find here some hints on how we dit it, or, to be more pricise, the public open source parts of it.
+ART+COM development group. Stuff we do with software to be found here. For the [images of our projects](http://artcom.de/) you might find here some hints on how we dit it, or, to be more precise, the public open source parts of it.
 
 ### More Information
 
