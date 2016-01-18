@@ -6,7 +6,7 @@
 name: artcom development
 
 # Short bio or description (displayed in the header)
-description: show & tell of what and how we did things we did in out projects
+description: show & tell of what and how we did things we did in our projects (software-wise)
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars3.githubusercontent.com/u/338346?v=3&s=200
@@ -18,7 +18,7 @@ avatar: https://avatars3.githubusercontent.com/u/338346?v=3&s=200
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: dev@artcom.de
   facebook:
   flickr:
   github: artcom/artcom.github.io
