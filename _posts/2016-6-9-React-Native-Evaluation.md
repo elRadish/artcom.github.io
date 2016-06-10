@@ -1,15 +1,13 @@
 ---
 layout: post
-title: Draft - React Native Evaluation @ ART+COM
+title: React Native Evaluation @ ART+COM
 ---
 
 Development Journey, JUN 2016
 
 A basic knowledge about React, Redux and React Native is assumed.
 
-Github: [https://github.com/artcom/running-app](https://github.com/artcom/running-app)
-
-Find the app: ...
+[https://github.com/artcom/running-app](https://github.com/artcom/running-app)
 
 ## Preface
 
