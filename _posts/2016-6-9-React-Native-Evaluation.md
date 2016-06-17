@@ -9,6 +9,8 @@ A basic knowledge about React, Redux and React Native is assumed.
 
 [https://github.com/artcom/running-app](https://github.com/artcom/running-app)
 
+[https://play.google.com/store/apps/details?id=com.artcom.runwalk](https://play.google.com/store/apps/details?id=com.artcom.runwalk)
+
 ## Preface
 
 In our daily work we are experimenting with exhibits that are accompanied by mobile experiences. We have ample expertise with iOS and Android native development. But our recent technological focus on the React/Redux front-end stack made us curious to see if React Native can be an alternative for us.
