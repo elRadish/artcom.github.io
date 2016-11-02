@@ -7,7 +7,7 @@ Building a small wireless sensor for a prototyped "Phygital magazine"
 
 ## Preface
 
-The goal of the described project is to build a small wireless short-distance sender that is can be hidden in a printed magazine. It is connected to tiny contact pads printed on an advertisment page. When these pads are touched, a corresponding signal is sent to a receiver that forwards it to the network.
+The goal of the described project is to build a small wireless short-distance sender that can be hidden in a printed magazine. It is connected to tiny contact pads printed on an advertisment page. When these pads are touched, a corresponding signal is sent to a receiver that forwards it to the network.
 Although I had some experience with small microcontroller projects before, I never had to take battery consumption into account. 
 
 ## Goals
@@ -15,11 +15,11 @@ Although I had some experience with small microcontroller projects before, I nev
 * As simple as possible
 * Maintenance free. 
 * Power efficient 
-* Delay-free
+* Fast reaction
 * No LiPo batteries because of fire hazard while charging them (especially between paper)
 
 ## Wireless technology
-The follwoing crieterias were taken into account when choosing the wireless technology:
+The follwoing criterias were taken into account when choosing the wireless technology:
 
 * To save as much power as possible, any wireless technology that has to maintain a constant connection to base station like WiFi or Bluetooth AUSSCHEIDEN. Establishing the connection on demand was assumed to take take too long (after having evaluated the ESP8266, I might give it a chance for something like that -> see LINK).
 * Communication has to be uni-directional only.
@@ -35,6 +35,17 @@ The whole transmitting logic is pretty simple and done in software. It has to de
 
 There are a couple of useful libraries for that purpose. VirtualWire, ManchesterTX, RadioHead. I chose VirtualWire, since it has a small footprint and is well documented. As a nice feature, it handles transimtting via interrupt service routines in the "background" (If we can talk about "background" on a 8 Mhz single core microcontroller ;-) ).
 
+### Receiver
+
+The receiver doesn't need to be very power efficient. It can be powered through 5V or through PoE. It is connected to the backend via ethernet and is more or less a simple bridge from wireless receiver to MQTT. It just forwards received messages to a given topic.
+
+Additionally, it has a RGB-LED to show its current state:
+* Red: Not connected to network
+* Yellow: Connected to network, bootstrapping
+* Green: Conncted to MQTT-Broker
+* Blue: Receiving wireless message
+* Flashing pink: Transmitter battery low
+
 ## Touch
 There was a prior prototype of the magazine that worked with a capacitive touch sensor. The problem was that it couldn't distinguish between the paper of the magazine when it is opened /closed and the finger and sent many gost touches. 
 
@@ -43,8 +54,6 @@ These contacts are connected to ground and to an interrupt-enabled pin. Normally
 
 After redesigning the page and printing it with a professional inkjet printer, we expercienced that black printing ink is pretty conductive :-(. Probably it contains some RUSS particles.
 We had to reprint it with a laser printer.
-
-## MCU
 
 ## Power consumption
 
@@ -57,4 +66,6 @@ Normally, Arduino PCBs are not made to be very power efficient. So I had to remo
 After switching off as much as possible (Analog-digital-converter, brown-out-detection etc.) power consumption went down to 30uA. That's fine and gives around 250 days of standby - which is pretty fine. The whole thing is used only a few times a day - so it should still give about 200 days of battery lifetime during normal use.
 
 ## Summary
-That tiny project gave me a chance to discover the first coasts of low-power-land. It is really fun to drive things to even lower currents and to minimize the footprints of the boards. The 
+That tiny project gave me a chance to discover the first coasts of low-power-land. It is really fun to drive things to even lower currents and to minimize the footprints of the boards. 
+The technology works for months without problems.
+The RF433 technology proved to be reliable enough for that use case - but there are now better choices on the market. The RFM12 and RFM69 modules from hopeFM are very promising - they provide much more reliabilty, are even smaller and have bidirectional transmitting including auto gain adaption, acknowledge-management and AES128 encryption (but they were out of stock anywhere when I build that project).
