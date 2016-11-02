@@ -55,6 +55,9 @@ These contacts are connected to ground and to an interrupt-enabled pin. Normally
 After redesigning the page and printing it with a professional inkjet printer, we expercienced that black printing ink is pretty conductive :-(. Probably it contains some RUSS particles.
 We had to reprint it with a laser printer.
 
+## MCU
+Normally, the smallest AtTiny MCU would be enough for the required functions. But I couldn't get it to wake up from sleep with a high-level interrupt - which worked with the AtMega328. Since I had some Arduino Pro Mini available, I didn't dig deeper and just used these after removing some power-hungry components.
+
 ## Power consumption
 
 The sender is powered by two CR2032 coin cells to provide ca. 6 Volts for the transmitter.
@@ -69,3 +72,6 @@ After switching off as much as possible (Analog-digital-converter, brown-out-det
 That tiny project gave me a chance to discover the first coasts of low-power-land. It is really fun to drive things to even lower currents and to minimize the footprints of the boards. 
 The technology works for months without problems.
 The RF433 technology proved to be reliable enough for that use case - but there are now better choices on the market. The RFM12 and RFM69 modules from hopeFM are very promising - they provide much more reliabilty, are even smaller and have bidirectional transmitting including auto gain adaption, acknowledge-management and AES128 encryption (but they were out of stock anywhere when I build that project).
+
+In retrospective, it hardly makes sense to use a complete Arduino Board to remove most of the parts (LED, regulator) to save power afterwards. I would rather chose a plain Atmel MCU like AtTiny 85 or AtMega168 or 328.
+That could be programmed with an Arduino Bootloader for easier deployment through USB if required or simply by ISP connector. 
