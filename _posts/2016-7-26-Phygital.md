@@ -36,6 +36,7 @@ We chose a very simple 433Mhz [ASK-Modulated](https://en.wikipedia.org/wiki/Ampl
 They work _nearly_ like a wire - they just transmit the level on the transmitter's input pin to the receiver's output pin. In an ideal world, we could just use them as wire and connect them to the UART-pins of the microcontroller. That might work sometimes, but is not reliable.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/rf433.jpg)
+
 *RF 433 sender and receiver*
 
 The whole transmitting logic is simple and can be done in software. It has to deal with bad receiption and deals with things like sending a preamble to give the receiver a chance to adjust its auto gain control to the signal. Additionally, the data is encoded 4-to-6 bits to achieve a better DC-balance for wireless transmission.
@@ -52,14 +53,17 @@ Both are running for 200-300 days with 2 CR2032 coin cells.
 #### Touch sensor with AtMega328 on perfboard.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png)
+
 *Sender with touch sensor*
 
 #### Light sensor with AtTiny85 on etched PCB.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png)
+
 *Sender with light sensor*
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book_working.gif)
+
 *Sender in action*
 
 ### Receiver
@@ -74,6 +78,7 @@ Additionally, it has a RGB-LED to show its current state:
 * Flashing pink: Transmitter battery low
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/receiver.png)
+
 *Receiver*
 
 ## Touch
@@ -88,6 +93,7 @@ I used a AtMega328@16Mhz on a Arduino Pro Mini PCB for the frist sender. It is s
 For the second sender, I took a plain AtTiny85 with internal oscillator on a selfmade PCB.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/pcb.jpg)
+
 *PCB exposure*
 
 ## Power consumption
@@ -98,6 +104,7 @@ Atmel microcontrollers can be very power efficient. It is possible to send them 
 After switching off as much as possible (Analog-Digital-Converter, Brown-out-detection etc.) power consumption went down to 30uA. That gives around 200-250 days of standby time with 2 CR2032 coin cells. 
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender_lifecycle.png)
+
 *Power states of the sender*
 
 ## Summary
