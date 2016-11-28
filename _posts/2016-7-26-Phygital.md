@@ -47,9 +47,9 @@ Both are running for 200-300 days with 2 CR2032 coin cells.
 
 #### Touch sensor with AtMega328 on perfboard.
 
-<img style="width: 32%;" src="{{ site.baseurl }}/images/2016-7-26-Phygital/sender.png"/>
-<img style="width: 32%;" src="{{ site.baseurl }}/images/2016-7-26-Phygital/senderCr2032_schema.png"/>
-<img style="width: 32%;" src="{{ site.baseurl }}/images/2016-7-26-Phygital/phy_book.png"/>
+<img style="width: 32%;" src="https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png"/>
+<img style="width: 32%;" src="https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png"/>
+<img style="width: 32%;" src="https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png"/>
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/)
 *Sender with touch sensor*
