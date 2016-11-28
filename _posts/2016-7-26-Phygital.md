@@ -7,7 +7,11 @@ Building a small wireless sensor for a prototyped "Phygital magazine"
 
 ## Preface
 
-The goal of the described project is to build a small short-distance wireless sender with touch sensor that can be hidden in a printed magazine to make it "Phygital" = Physical and Digital. The user sees a printed advertisment with an integrated touch area. If he touches the area in the paper, the corresponding product is offered on a nearby screen and can be customized by the reader.
+The goal of the described project is to build a small short-distance wireless sender with touch and light sensor that can be hidden in a printed magazine / book to make it "Phygital" = Physical and Digital. 
+Two use-cases have been implemented: 
+
+* The user sees a printed advertisment with an integrated touch area. If he touches the area in the paper, the corresponding product is offered on a nearby screen and can be customized by the reader.
+* The user opens a book and the reading light switches oh while the ambient light dims down.
 
 ## Requirements
 * Small
@@ -55,6 +59,9 @@ Both are running for 200-300 days with 2 CR2032 coin cells.
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png)
 *Sender with light sensor*
 
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.gif)
+*Sender in action*
+
 ### Receiver
 
 The receiver can be powered through 5V or PoE. It is connected to the location's backend via ethernet and builds a bridge to MQTT. It simply forwards received messages to a given MQTT-topic.
@@ -70,9 +77,11 @@ Additionally, it has a RGB-LED to show its current state:
 *Receiver*
 
 ## Touch
-To keep it as simple as possible, I preferred the most simple touch principle: 
-Resistive touch between two (nearly) invisible contacts. They are painted with black conductive color onto a black area of the magazine page. Contact is made with self adhesive copper tape on the back of the page.
+To keep it as simple as possible, I preferred the simplest touch principle - resistive touch between two (nearly) invisible contacts. They are painted with black conductive color onto a black area of the magazine page. Contact is made with self adhesive copper tape on the back of the page.
 If the contacts are bridged by a finger, the current is enough to wake up the microcontroller from deep sleep.
+
+## Light
+Light is sensed by a simple light dependent resistor that is read out once a second. The light can be measured through some sheets of paper.
 
 ## MCU
 I used a AtMega328@16Mhz on a Arduino Pro Mini PCB. It is small and can be made very power efficient when removing some parts (Power regulator, Power LED). The board can be powered directly by the CR2032 coin cells.
