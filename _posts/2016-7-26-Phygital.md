@@ -74,9 +74,6 @@ To keep it as simple as possible, I preferred the most simple touch principle:
 Resistive touch between two (nearly) invisible contacts. They are painted with black conductive color onto a black area of the magazine page. Contact is made with self adhesive copper tape on the back of the page.
 If the contacts are bridged by a finger, the current is enough to wake up the microcontroller from deep sleep.
 
-(After redesigning the page and printing it with a professional inkjet printer, we expercienced that black printing ink is pretty conductive :-(. Probably it contains some RUSS particles.
-We had to reprint it with a laser printer.)
-
 ## MCU
 I used a AtMega328@16Mhz on a Arduino Pro Mini PCB. It is small and can be made very power efficient when removing some parts (Power regulator, Power LED). The board can be powered directly by the CR2032 coin cells.
 
