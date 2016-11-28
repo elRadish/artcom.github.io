@@ -20,16 +20,18 @@ The goal of the described project is to build a small short-distance wireless se
 ## Wireless technology
 The follwoing criteria were taken into account when choosing the wireless technology:
 
-* To save as much power as possible, any wireless technology that has to maintain a constant connection to base station (like WiFi or Bluetooth) drops out. 
-* Establishing the connection on demand was assumed to take take too long (after having evaluated the ESP8266, I might give it a chance for something like that -> see LINK).
-* Communication nneds to be uni-directional only.
+* Communication needs to be uni-directional only.
 * No sensitive data is transferred. Encryption is not neccessary.
 * The distance between sender and receiver is just a few meters.
 * The sender hardware should be small.
 * The technology should be legal and licence free
+* No constant connection to base station (like WiFi or Bluetooth) to save energy. 
+* No time consuming handshakes to establish a connection.
 
 We chose a very simple 433Mhz ASK-Modulated technology, often called "RFM433". There are very similar modules sold for a few Euros. They are very similar to the 433Mhz wireless modules used for wireless power outlets, for cheap headphones, simple doorbells etc.
 They work _nearly_ like a wire - they just transmit the level on the transmitter's input pin to the receiver's output pin. In an ideal world, we could just use them as wire and connect them to the UART-pins of the microcontroller. That might work sometimes, but is not reliable.
+
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/rf433.jpg)
 
 The whole transmitting logic is simple and can be done in software. It has to deal with bad receiption and deals with things like sending a preamble to give the receiver a chance to adjust its auto gain control to the signal. Additionally, the data is encoded 4-to-6 bits to achieve a better DC-balance for wireless transmission.
 
@@ -40,7 +42,7 @@ There are a couple of useful libraries for that purpose. VirtualWire, Manchester
 The sender is pretty small. Is gives the best range when equipped with a plain lambda/4 wire antenna (17,3cm). It has no power consumption as long as it isn't transmitting.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png)
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png | width=48)
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png)
 
 ### Receiver
 
@@ -49,9 +51,12 @@ The receiver doesn't need to be very power efficient. It can be powered through 
 Additionally, it has a RGB-LED to show its current state:
 * Red: Not connected to network
 * Yellow: Connected to network, bootstrapping
-* Green: Conncted to MQTT-Broker
+* Green: Connected to MQTT-Broker
 * Blue: Receiving wireless message
 * Flashing pink: Transmitter battery low
+
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/receiver.png)
+
 
 ## Touch
 To keep it as simple as possible, I preferred the most simple touch principle: Resistive touch between two (nearly) invisible contacts. They are painted with black conductive color onto a black area of the magazine page. Contact is made with self adhesive copper tape on the back of the page.
