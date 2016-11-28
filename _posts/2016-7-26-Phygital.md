@@ -40,11 +40,11 @@ They work _nearly_ like a wire - they just transmit the level on the transmitter
 
 The whole transmitting logic is simple and can be done in software. It has to deal with bad receiption and deals with things like sending a preamble to give the receiver a chance to adjust its auto gain control to the signal. Additionally, the data is encoded 4-to-6 bits to achieve a better DC-balance for wireless transmission.
 
-There are a couple of useful libraries for that purpose. VirtualWire, ManchesterTX, RadioHead. I chose VirtualWire, since it has a small footprint and is well documented. As a nice feature, it handles transimtting via interrupt service routines in the "background" (If we can talk about "background" on a 8 Mhz single core microcontroller ;-) ).
+There are a couple of useful libraries for that purpose. [VirtualWire](https://www.pjrc.com/teensy/td_libs_VirtualWire.html), [ManchesterTX](http://mchr3k.github.io/arduino-libs-manchester/), [RadioHead](http://www.airspayce.com/mikem/arduino/RadioHead/). I chose VirtualWire, since it has a small footprint and is well documented. As a nice feature, it handles transimtting via interrupt service routines in the "background" (If we can talk about "background" on a 8 Mhz single core microcontroller ;-) ).
 
-The sender is pretty small. Is gives the best range when equipped with a plain lambda/4 wire antenna (17,3cm). It has no power consumption as long as it isn't transmitting.
+The sender is pretty small. It gives the best range when equipped with a plain lambda/4 wire antenna (17,3cm). It has no power consumption as long as it isn't transmitting.
 
-### Sender
+### Phygital sender
 
 We build two senders. The first is working with resisitive touch, the second has a light dependent resistor to detect if a book is opened or closed.
 Both are running for 200-300 days with 2 CR2032 coin cells.
@@ -64,7 +64,7 @@ Both are running for 200-300 days with 2 CR2032 coin cells.
 
 ### Receiver
 
-The receiver can be powered through 5V or PoE. It is connected to the location's backend via ethernet and builds a bridge to MQTT. It simply forwards received messages to a given MQTT-topic.
+The receiver can be powered through 5V USB or PoE. It is connected to the location's backend via ethernet and builds a bridge to MQTT. It simply forwards received messages to a given MQTT-topic.
 
 Additionally, it has a RGB-LED to show its current state:
 * Red: Not connected to network
@@ -83,8 +83,12 @@ If the contacts are bridged by a finger, the current is enough to wake up the mi
 ## Light
 Light is sensed by a simple light dependent resistor that is read out once a second. The light can be measured through some sheets of paper.
 
-## MCU
-I used a AtMega328@16Mhz on a Arduino Pro Mini PCB. It is small and can be made very power efficient when removing some parts (Power regulator, Power LED). The board can be powered directly by the CR2032 coin cells.
+## Microcontroller
+I used a AtMega328@16Mhz on a Arduino Pro Mini PCB for the frist sender. It is small and can be made very power efficient when removing some parts (Power regulator, Power LED). The board can be powered directly by the CR2032 coin cells.
+For the second sender, I took a plain AtTiny85 with internal oscillator on a selfmade PCB.
+
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/pcb.jpg)
+*PCB exposure*
 
 ## Power consumption
 
