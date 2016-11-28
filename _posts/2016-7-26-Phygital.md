@@ -59,7 +59,7 @@ Both are running for 200-300 days with 2 CR2032 coin cells.
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png)
 *Sender with light sensor*
 
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.gif)
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book_working.gif)
 *Sender in action*
 
 ### Receiver
