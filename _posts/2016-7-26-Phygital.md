@@ -40,7 +40,7 @@ There are a couple of useful libraries for that purpose. VirtualWire, Manchester
 The sender is pretty small. Is gives the best range when equipped with a plain lambda/4 wire antenna (17,3cm). It has no power consumption as long as it isn't transmitting.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png)
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png)
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png | width=48)
 
 ### Receiver
 
