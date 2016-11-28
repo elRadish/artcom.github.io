@@ -47,20 +47,14 @@ Both are running for 200-300 days with 2 CR2032 coin cells.
 
 #### Touch sensor with AtMega328 on perfboard.
 
-<img style="width: 32%;" src="https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png"/>
-<img style="width: 32%;" src="https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png"/>
-<img style="width: 32%;" src="https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png"/>
-
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/)
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png)
 *Sender with touch sensor*
-
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/)
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png)
 *Schematics of the sender*
 
 #### Light sensor with AtTiny85 on etched PCB.
 
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/)
-
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png)
 *Sender with light sensor*
 
 ### Receiver
