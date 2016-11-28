@@ -114,3 +114,5 @@ The RF433 technology proved to be reliable enough for that use case - but there 
 
 For the first sender, I used a complete Arduino Pro Mini and removed some parts to save energy - which hardly makes sense in retrospective. I would rather chose a plain Atmel MCU like AtTiny 85, AtMega32u4 or AtMega328 like I did for the second approach. 
 For easier deployment, we'll add a software implemented USB-Stack and bootloader to the next sender.
+
+Additionally, I had some fun etching the small pcb for the second sender at home ;-)
