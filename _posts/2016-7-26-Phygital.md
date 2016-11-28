@@ -28,7 +28,7 @@ The follwoing criteria were taken into account when choosing the wireless techno
 * No constant connection to base station (like WiFi or Bluetooth) to save energy. 
 * No time consuming handshakes to establish a connection.
 
-We chose a very simple 433Mhz ASK-Modulated technology, often called "RFM433". There are very similar modules sold for a few Euros. They are very similar to the 433Mhz wireless modules used for wireless power outlets, for cheap headphones, simple doorbells etc.
+We chose a very simple 433Mhz [ASK-Modulated](https://en.wikipedia.org/wiki/Amplitude-shift_keying) technology, often called "RFM433". There are very similar modules sold for a few Euros. They are very similar to the 433Mhz wireless modules used for wireless power outlets, for cheap headphones, simple doorbells etc.
 They work _nearly_ like a wire - they just transmit the level on the transmitter's input pin to the receiver's output pin. In an ideal world, we could just use them as wire and connect them to the UART-pins of the microcontroller. That might work sometimes, but is not reliable.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/rf433.jpg)
@@ -73,8 +73,9 @@ I used a AtMega328@16Mhz on a Arduino Pro Mini PCB. It is small and can be made 
 ### Sleep modes
 Atmel microcontrollers can be very power efficient. It is possible to send them to deep sleep and to disable many integrated units to minimize the power consumption from about 25mA to few microamps. They can be activated by interrupts and watchdog timers.
 
-After switching off as much as possible (Analog-digital-converter, brown-out-detection etc.) power consumption went down to 30uA. That gives around 200-250 days of standby time - which is enough. 
+After switching off as much as possible (Analog-Digital-Converter, Brown-out-detection etc.) power consumption went down to 30uA. That gives around 200-250 days of standby time with 2 CR2032 coin cells. 
 
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender_lifecycle.png)
 
 ## Summary
 That tiny project gave me a chance to make some first steps in low-power-land. 
