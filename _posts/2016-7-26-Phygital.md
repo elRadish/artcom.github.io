@@ -49,8 +49,6 @@ Both are running for 200-300 days with 2 CR2032 coin cells.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png)
 *Sender with touch sensor*
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png)
-*Schematics of the sender*
 
 #### Light sensor with AtTiny85 on etched PCB.
 
@@ -93,7 +91,7 @@ After switching off as much as possible (Analog-Digital-Converter, Brown-out-det
 *Power states of the sender*
 
 ## Summary
-That tiny project gave me a chance to make some first steps in low-power-land. 
+That small project gave me a chance to make some first steps in low-power-land. 
 The technology has been working now for months without problems.
 The RF433 technology proved to be reliable enough for that use case - but there are now better choices on the market. The new RFM69 modules from hopeFM have the same size - but they provide much more reliabilty, are smaller and have bidirectional transmitting including auto gain adaption, acknowledge-management and AES128 encryption.
 
