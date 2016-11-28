@@ -38,22 +38,30 @@ The whole transmitting logic is simple and can be done in software. It has to de
 
 There are a couple of useful libraries for that purpose. VirtualWire, ManchesterTX, RadioHead. I chose VirtualWire, since it has a small footprint and is well documented. As a nice feature, it handles transimtting via interrupt service routines in the "background" (If we can talk about "background" on a 8 Mhz single core microcontroller ;-) ).
 
+The sender is pretty small. Is gives the best range when equipped with a plain lambda/4 wire antenna (17,3cm). It has no power consumption as long as it isn't transmitting.
+
 ### Sender
 
-The sender is pretty small. Is gives the best range when equipped with a plain lambda/4 wire antenna (17,3cm). It has no power consumption as long as it isn't transmitting.
+We build two senders. The first is working with resisitive touch, the second has a light dependent resistor to detect if a book is opened or closed.
+Both are running for 200-300 days with 2 CR2032 coin cells.
+
+#### Touch sensor with AtMega328 on perfboard.
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/sender.png)
 *Sender with touch sensor*
 
-![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png)
-*Sender with light sensor*
-
 ![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/senderCr2032_schema.png)
 *Schematics of the sender*
 
+#### Light sensor with AtTiny85 on etched PCB.
+
+![image](https://github.com/elRadish/artcom.github.io/blob/phygital/images/2016-7-26-Phygital/phy_book.png)
+
+*Sender with light sensor*
+
 ### Receiver
 
-The receiver doesn't need to be very power efficient. It can be powered through 5V or through PoE. It is connected to the backend via ethernet and functions as a bridge from to MQTT. It simply forwards received messages to a given topic.
+The receiver can be powered through 5V or PoE. It is connected to the location's backend via ethernet and builds a bridge to MQTT. It simply forwards received messages to a given MQTT-topic.
 
 Additionally, it has a RGB-LED to show its current state:
 * Red: Not connected to network
@@ -66,7 +74,8 @@ Additionally, it has a RGB-LED to show its current state:
 *Receiver*
 
 ## Touch
-To keep it as simple as possible, I preferred the most simple touch principle: Resistive touch between two (nearly) invisible contacts. They are painted with black conductive color onto a black area of the magazine page. Contact is made with self adhesive copper tape on the back of the page.
+To keep it as simple as possible, I preferred the most simple touch principle: 
+Resistive touch between two (nearly) invisible contacts. They are painted with black conductive color onto a black area of the magazine page. Contact is made with self adhesive copper tape on the back of the page.
 If the contacts are bridged by a finger, the current is enough to wake up the microcontroller from deep sleep.
 
 (After redesigning the page and printing it with a professional inkjet printer, we expercienced that black printing ink is pretty conductive :-(. Probably it contains some RUSS particles.
@@ -88,7 +97,7 @@ After switching off as much as possible (Analog-Digital-Converter, Brown-out-det
 ## Summary
 That tiny project gave me a chance to make some first steps in low-power-land. 
 The technology has been working now for months without problems.
-The RF433 technology proved to be reliable enough for that use case - but there are actually better choices on the market. The new RFM69 modules from hopeFM have the same size - but they provide much more reliabilty, are smaller and have bidirectional transmitting including auto gain adaption, acknowledge-management and AES128 encryption.
+The RF433 technology proved to be reliable enough for that use case - but there are now better choices on the market. The new RFM69 modules from hopeFM have the same size - but they provide much more reliabilty, are smaller and have bidirectional transmitting including auto gain adaption, acknowledge-management and AES128 encryption.
 
-In retrospective, it hardly makes sense to use a complete Arduino Board to remove most of the parts (LED, regulator) to save power afterwards. I would rather chose a plain Atmel MCU like AtTiny 85 or AtMega168 or 328.
-That could be programmed with an Arduino Bootloader for easier deployment through USB if required or simply by ISP connector. 
+For the first sender, I used a complete Arduino Pro Mini and removed some parts to save energy - which hardly makes sense in retrospective. I would rather chose a plain Atmel MCU like AtTiny 85, AtMega32u4 or AtMega328 like I did for the second approach. 
+For easier deployment, we'll add a software implemented USB-Stack and bootloader to the next sender.
