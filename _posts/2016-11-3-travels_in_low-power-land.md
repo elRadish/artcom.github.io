@@ -20,9 +20,11 @@ They should be as small as possible. Data rate is no concern since only small am
 
 We evaluated two wireless technolgies:
 
-### Espressif ESP8266
+![image](https://github.com/elRadish/artcom.github.io/blob/lowpower/images/2016-7-12-low-power-land/esp_rfm_size.jpg)
 
-![image](http://)
+*RFM69HCW (left) and ESP8266 ESP-12-E (right)*
+
+### Espressif ESP8266
 
 *EPS8266 Module*
 
@@ -45,8 +47,6 @@ Due to the high peak current, powering the ESP8266 through a Lithium coin cell i
 constant currents and their voltage drops heavily when higher currents are drawn. 
 
 ### Hope RF RFM69HCW + AtMega 
-
-![image](http://)
 
 *RFM69HCW Module*
 
@@ -77,4 +77,4 @@ Especially the current peaks are interesting to choose the battery type. Typical
 
 ![image](https://github.com/elRadish/artcom.github.io/blob/lowpower/images/2016-7-12-low-power-land/esp_vs_rfm.jpg)
 
-*Current behaviour comparison*
+*Current comparison*
