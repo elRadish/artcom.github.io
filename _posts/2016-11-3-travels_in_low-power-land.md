@@ -62,7 +62,7 @@ Deep sleep current is mainly dependent on the current consumption of the microco
 * RSSI output for debugging and range estimation
 * Adjustable transmitting power
 
-![image](http://)
+![image](https://github.com/elRadish/artcom.github.io/blob/lowpower/images/2016-7-12-low-power-land/rfm69_power_levels.jpg)
 
 *Current draw of different transmit power settings*
 
@@ -75,6 +75,6 @@ The current was measured with a INA129 I2C current sensor and a small Arduino sk
 
 Especially the current peaks are interesting to choose the battery type. Typical lithium coin cells can't handle hugh current draws of several hundred milli amperes. For higher currents, coin cell shaped Li-Ion batteries are available which have only about half of the capacity of lithium cells.
 
-![image](http://)
+![image](https://github.com/elRadish/artcom.github.io/blob/lowpower/images/2016-7-12-low-power-land/esp_vs_rfm.jpg)
 
 *Current behaviour comparison*
