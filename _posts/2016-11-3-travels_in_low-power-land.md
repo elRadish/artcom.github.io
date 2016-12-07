@@ -26,7 +26,7 @@ We evaluated two wireless technolgies:
 
 *EPS8266 Module*
 
-[Esp8266](http://www.espressif.com/sites/default/files/9b-esp8266-low_power_solutions_en_0.pdf) is a tiny SoC with Wifi and several GPIO-Pins. It's available on a couple of breakout boards, starting at about 2 € per piece. There is a gcc-compiler available and the Arduino community supports the tiny module pretty well. It has only one analogue input and just a few GPIO pins. We tested a ESP8266 ESP12 Module. They have a printed antenna on the pcb itself.
+[Esp8266](http://www.espressif.com/sites/default/files/9b-esp8266-low_power_solutions_en_0.pdf) is a tiny SoC with Wifi and several GPIO-Pins. It's available on a couple of breakout boards, starting at about 2 € per piece. Many of them are made by AiThinker or Espressif There is a gcc-compiler available and the Arduino community supports the tiny module pretty well. It has only one analogue input and just a few GPIO pins. We tested a ESP8266 ESP12E Module. They have a printed antenna on the pcb itself.
 
 #### Results 
 * Very fast WiFi connection speed. After waking up from deepsleep, it connects to WPA2-Wifi with a static IP and publishes the first message in about 200ms
@@ -36,7 +36,10 @@ We evaluated two wireless technolgies:
 * No USB interface - USB-to-Serial adapter needed for programming
  
 #### Additional Features
-* Over the air updates possible, even via embedded webbrowser: [https://github.com/esp8266/Arduino/blob/master/doc/ota_updates/](https://github.com/esp8266/Arduino/blob/master/doc/ota_updates/)
+
+* Over the air updates are possible, even via a tiny embedded webserver: [https://github.com/esp8266/Arduino/blob/master/doc/ota_updates/](https://github.com/esp8266/Arduino/blob/master/doc/ota_updates/)
+* Bootstrapping and configuration might be done through tiny embedded webserver directly 
+* Many modules have 1-4MB flash memory on board with a complete file system implementation that can be used for persisting data
 
 Due to the high peak current, powering the ESP8266 through a Lithium coin cell is not possible - these cells are made for low 
 constant currents and their voltage drops heavily when higher currents are drawn. 
